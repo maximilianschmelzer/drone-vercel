@@ -1,0 +1,37 @@
+kind: pipeline
+type: docker
+name: review
+
+workspace:
+  path: /drone/repo
+
+steps:
+  - name: deploy
+    image: maximilianschmelzer1/drone-vercel
+    environment:
+      TOKEN: token
+
+trigger:
+  event:
+    - pull_request
+
+---
+kind: pipeline
+type: docker
+name: production
+
+workspace:
+  path: /drone/repo
+
+steps:
+  - name: deploy
+    image: maximilianschmelzer1/drone-vercel
+    environment:
+      TOKEN: token
+      IS_PROD: true
+
+trigger:
+  branch:
+    - master
+  event:
+    - push
