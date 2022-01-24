@@ -13,6 +13,7 @@ Deploys
 Edit
 * `repo` in `path: /drone/repo`
 * `token` in `TOKEN: token`
+* `region`in `REGION: region`
 
 ### Why define workspace?
 
